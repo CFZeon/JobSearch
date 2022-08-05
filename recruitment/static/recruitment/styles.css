@@ -1,0 +1,81 @@
+.entry {
+    margin: 10px;
+    background-color: aliceblue;
+}
+
+.general {
+    margin: 1% 5%;
+}
+
+.buttons {
+    margin: 5px 5px 5px 5px;
+    border: 2px solid #7b8ab6;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.borderless-textfield {
+    width: 100%;
+    outline: none;
+    border: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bordered-textfield {
+    width: 100%;
+    border: 2px solid black;
+    border-width: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comment-entry {
+    padding: 5px;
+    /* border: 1px solid black;
+    border-radius: 5px; */
+    margin: 5px;
+    background-color: aliceblue;
+}
+
+.listing-entry {
+    padding: 5px;
+    /* border: 1px solid black;
+    border-radius: 5px; */
+    margin: 5px;
+    background-color: aliceblue;
+}
+
+.comment-inner {
+    background-color: white;
+    border: 0px solid black;
+    padding: 0px 5px;
+    border-radius: 5px;
+}
+
+.jobform-row {
+    display:grid;
+    grid-template-columns:1fr 5fr;
+    margin: 5px;
+}
+
+.inputwidth {
+    border: 1px solid #7b8ab6;
+    border-radius:5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    width: 100%;
+}
+
+.inputwowidth {
+    border: 1px solid #7b8ab6;
+    border-radius:5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+}

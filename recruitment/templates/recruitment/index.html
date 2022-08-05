@@ -1,0 +1,108 @@
+{% extends "recruitment/layout.html" %}
+{% load static %}
+<img src ="{% static 'recruitment/estar.png'%}" alt="empty star">
+<img src ="{% static 'recruitment/fstar.png'%}" alt="filled star">
+
+{% block body %}
+    <div id="heading">
+        <!-- just fill it with a H1 tag of what this page is supposed to be-->
+    </div>
+    <div id="general"> <!-- this div is for everything else-->
+        <div id="sub">
+            <h4>New listings from categories you subscribe to</h4>
+        </div>
+        <div id="applied">
+            <h4>Listings you have applied to</h4>
+        </div>
+    </div>
+    <div id="accepted">
+
+    </div>
+    <div id="listing"> <!-- this div is for listing down jobs-->
+        <select class="inputwidth" id="filter" name="filter" onchange="catchange()">
+            <option value="all">All</option>
+            <option value="category">Category</option>
+            <option value="company">Company</option>
+        </select>
+        <div id="companydiv" style="margin-top:5px; display:none;">
+            <form id="company-form">
+                <input class="inputwowidth" id="companyname" type="text" placeholder="Company Name">
+                <input type="submit">
+            </form>
+        </div>
+
+        <div id="catdiv" style="display:none;">
+            <select class="inputwidth" id="catselect" name="catselect" id="catselect" onchange="loadcat()">
+                <option value="tech">tech</option>
+                <option value="business">business</option>
+                <option value="engineering">engineering</option>
+                <option value="marketing">marketing</option>
+                <option value="software development">software development</option>
+            </select>
+        </div>
+
+        <div id="list">
+
+        </div>
+    </div>
+    <div id="newjob" class="listing-entry">
+        <form id="job-form">
+            {% csrf_token %}
+            <div class="jobform-row">
+                <div>
+                    <strong>Job Title</strong>
+                </div>
+                <div>
+                    <input class="inputwidth" id="jobtitle" type="text" name="title" placeholder="Job Title">
+                </div>
+            </div>
+            
+            <div class="jobform-row">
+                <div>
+                    <strong>Category</strong>
+                </div>
+                <div>
+                    <select class="inputwidth" id="category" name="category" id="category">
+                        <option value="tech">tech</option>
+                        <option value="business">business</option>
+                        <option value="engineering">engineering</option>
+                        <option value="marketing">marketing</option>
+                        <option value="software development">software development</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="jobform-row">
+                <div>
+                    <strong>Starting Pay</strong>
+                </div>
+                <div>
+                    <input class="inputwidth" id="startingpay" type="number" placeholder="Starting Pay">
+                </div>
+            </div>
+            <div class="jobform-row">
+                <div>
+                    <strong>Job Description</strong>
+                </div>
+                <div>
+                    <textarea rows="5" class="bordered-textfield" id="description" name="description" form="job-form" placeholder="Enter job description here..."></textarea>        
+                </div>
+            </div>
+            <input type="submit" class="buttons">
+        </form>
+    </div>
+    <div id="profile">
+        <form id="username-form">
+            <input class="inputwowidth" id="username" type="text" placeholder="Search for Username or Company Name here...">
+            <input type="submit" class="buttons">
+        </form>
+        <div id="profileinfo">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'recruitment/recruitment.js' %}"></script>
+{% endblock %}

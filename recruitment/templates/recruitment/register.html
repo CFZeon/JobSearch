@@ -1,0 +1,36 @@
+{% extends "recruitment/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="register" class="register" style="display:block;" style="margin:10px;">
+            <form action="{% url 'register' %}" id="reg-form" method="post">
+                {% csrf_token %}
+                <!-- <input type="submit" class="buttons" value="Register"> -->
+                <div>
+                    <input class="inputwidth" autofocus type="text" name="username" placeholder="Username">
+                </div>
+                <div>
+                    <input class="inputwidth" type="email" name="email" placeholder="Email Address">
+                </div>
+                <div>
+                    <input class="inputwidth" type="password" name="password" placeholder="Password">
+                </div>
+                <div>
+                    <input class="inputwidth" type="password" name="confirmation" placeholder="Confirm Password">
+                </div>
+                <div class="jobform-row">
+                    <div>
+                        Are you a recruiter?
+                    </div>
+                    <div>
+                        <input class="inputwidth" type="checkbox" name="isRecruiter" placeholder="Recruiter">
+                    </div>
+                </div>
+                <input class="buttons" type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

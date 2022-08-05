@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}JobSearch{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'recruitment/styles.css' %}">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+            {{ request.user.id|json_script:"user_id" }} 
+            <!-- create div for top bar -->
+            <div class="topbar">
+                <a class="navbar-brand" href="#"><strong>JobSearch</strong></a>
+                <div class="navigation navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a id="hometab" class="nav-link" href="#">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a id="listingtab" class="nav-link" href="#">Listings</a>
+                          </li>
+                          {% if user.is_authenticated %}
+                          {% if user.isRecruiter %}
+                          <li class="nav-item">
+                            <a id="newjobtab" class="nav-link" href="#">New Job Posting</a>
+                          </li>
+                          {% else %}
+                          <li class="nav-item">
+                            <a id="acceptedtab" class="nav-link" href="#">Accepted Postings</a>
+                          </li>
+                          {% endif %}
+                          <li class="nav-item">
+                            <a id="profiletab" class="nav-link" href="#">Profile</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="logout">Logout</a>
+                          </li>
+                          {% else %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="register">Register</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
+                          </li>
+                          {% endif%}
+                    </ul>
+                    <!-- <span class="navbar-text">
+                        Your one stop platform for job searching
+                    </span> -->
+                </div>
+            </div>
+        </div>
+        <!-- create div for side bar and main content-->
+        <div class="general">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

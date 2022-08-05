@@ -1,0 +1,24 @@
+{% extends "recruitment/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>Login</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <input autofocus class="inputwidth" type="text" name="username" placeholder="Username">
+        </div>
+        <div>
+            <input class="inputwidth" type="password" name="password" placeholder="Password">
+        </div>
+        <input class="buttons" type="submit" value="Login">
+    </form>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
