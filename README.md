@@ -1,3 +1,5 @@
+View the video demonstration [here](https://www.youtube.com/watch?v=uSsAVdbq9B4)
+
 # CFZeon
 # Project description
 This project is a prototype of a job application website, akin to Glassdoor. The video will be timestamped to match the features shown in accordance with the steps instead of a narrated video
